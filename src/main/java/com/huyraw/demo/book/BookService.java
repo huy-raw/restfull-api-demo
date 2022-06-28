@@ -4,9 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.net.http.HttpResponse;
 import java.util.List;
 import java.util.Optional;
+
 
 
 @Service
@@ -37,10 +37,39 @@ public class BookService {
         System.out.printf("Id: " + id);
 
         bookRepository.deleteById(id);
+
     }
 
     @Transactional
-    public void updateBook(Long id, String title, String author, Double price, Integer quantity){
+    public void updateBook(Long id, Book book){
+        Book bookOptional = bookRepository.findById(id).orElseThrow(
+                () -> new IllegalStateException("Book have id" + id + " does not exist"));
 
+        if(book.getTitle() != null
+                && !bookOptional.getTitle().equalsIgnoreCase(book.getTitle())
+                && book.getTitle().length() > 0){
+            bookOptional.setTitle(book.getTitle());
+        }
+
+        if(book.getAuthor() != null
+                && !bookOptional.getAuthor().equalsIgnoreCase(book.getAuthor())
+                && book.getAuthor().length() > 0
+        ){
+            bookOptional.setAuthor(book.getAuthor());
+        }
+
+        if(!bookOptional.getPrice().equals(book.getPrice())
+                && book.getPrice() != null
+        ){
+            bookOptional.setPrice(book.getPrice());
+        }
+
+        if(!bookOptional.getQuantity().equals(book.getQuantity())
+                && book.getQuantity() != null
+        ){
+            bookOptional.setQuantity(book.getQuantity());
+        }
+
+        bookRepository.save(bookOptional);
     }
 }

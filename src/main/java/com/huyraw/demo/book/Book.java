@@ -28,11 +28,23 @@ public class Book {
             generator = "book_sequence"
     )
     private Long Id;
+
+    @Column()
     private String title;
+
+    @Column()
     private String author;
+
+    @Column()
     private LocalDate importDate;
+
+    @Column()
     private Double price;
+
+    @Column
     private Integer quantity;
+
+    @Column(name = "isDelete")
     private Boolean status;
 
     public LocalDate getImportDate(){

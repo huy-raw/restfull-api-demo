@@ -22,6 +22,11 @@ public class BookService {
         return bookRepository.findAll();
     }
 
+    public Book getBookById(Long id) {
+        return bookRepository.findById(id).orElseThrow(
+                () -> new IllegalStateException("Book have id" + id + " does not exist"));
+    }
+
     public Book addNewBook(Book book) {
         Optional<Book> bookOptional = bookRepository.findBookByName(book.getTitle());
 

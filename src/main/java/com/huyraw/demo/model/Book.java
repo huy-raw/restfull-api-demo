@@ -1,4 +1,4 @@
-package com.huyraw.demo.book;
+package com.huyraw.demo.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

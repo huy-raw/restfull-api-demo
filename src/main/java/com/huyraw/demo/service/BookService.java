@@ -1,5 +1,8 @@
-package com.huyraw.demo.book;
+package com.huyraw.demo.service;
 
+import com.huyraw.demo.repository.BookRepository;
+import com.huyraw.demo.model.Book;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +13,7 @@ import java.util.Optional;
 
 
 @Service
+@Slf4j
 public class BookService {
     private final BookRepository bookRepository;
 
@@ -19,6 +23,7 @@ public class BookService {
     }
 
     public List<Book> getAllBooks() {
+        log.info("Get all books");
         return bookRepository.findAll();
     }
 
@@ -30,7 +35,10 @@ public class BookService {
     public Book addNewBook(Book book) {
         Optional<Book> bookOptional = bookRepository.findBookByName(book.getTitle());
 
-        if (bookOptional.isPresent()) throw new IllegalStateException("Book exist");
+        if (bookOptional.isPresent()) {
+            log.info("Book doesn't exist");
+            throw new IllegalStateException("Book exist");
+        }
 
         bookRepository.save(book);
         return book;
@@ -38,7 +46,10 @@ public class BookService {
 
     public void deleteBook(Long id) {
         boolean exist = bookRepository.existsById(id);
-        if (!exist) throw new IllegalStateException("Book have id " + id + " don't exist");
+        if (!exist) {
+            log.info(("Delete book failed"));
+            throw new IllegalStateException("Book have id " + id + " don't exist");
+        }
         System.out.printf("Id: " + id);
 
         bookRepository.deleteById(id);

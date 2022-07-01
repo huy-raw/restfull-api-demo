@@ -7,14 +7,13 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.Period;
 
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-@Table
+@Table(name = "book")
 @Entity
 public class Book {
     @Id
@@ -29,19 +28,19 @@ public class Book {
     )
     private Long Id;
 
-    @Column()
+    @Column(nullable = false)
     private String title;
 
-    @Column()
+    @Column(nullable = false)
     private String author;
 
     @Column()
     private LocalDate importDate;
 
-    @Column()
+    @Column(nullable = false)
     private Double price;
 
-    @Column
+    @Column(nullable = false)
     private Integer quantity;
 
     @Column(name = "isDelete")

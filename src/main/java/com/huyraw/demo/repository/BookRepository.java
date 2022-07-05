@@ -1,6 +1,6 @@
 package com.huyraw.demo.repository;
 
-import com.huyraw.demo.model.Book;
+import com.huyraw.demo.entity.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

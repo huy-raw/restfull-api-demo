@@ -1,7 +1,7 @@
 package com.huyraw.demo.service;
 
 import com.huyraw.demo.repository.BookRepository;
-import com.huyraw.demo.model.Book;
+import com.huyraw.demo.entity.Book;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,8 +23,13 @@ public class BookService {
     }
 
     public List<Book> getAllBooks() {
-        log.info("Get all books");
-        return bookRepository.findAll();
+        List<Book> bookList = bookRepository.findAll();
+        if(bookList.isEmpty()) {
+            log.error("Not found any book");
+            throw new IllegalStateException("Not found any book");
+        }
+        log.info(String.format("Get %d books", bookList.stream().count()));
+        return bookList;
     }
 
     public Book getBookById(Long id) {
@@ -36,18 +41,17 @@ public class BookService {
         Optional<Book> bookOptional = bookRepository.findBookByName(book.getTitle());
 
         if (bookOptional.isPresent()) {
-            log.info("Book doesn't exist");
-            throw new IllegalStateException("Book exist");
+            log.error(String.format("Book %s already exist", book.getTitle()));
+            throw new IllegalStateException("Book  exist");
         }
 
-        bookRepository.save(book);
-        return book;
+        return bookRepository.save(book);
     }
 
     public void deleteBook(Long id) {
         boolean exist = bookRepository.existsById(id);
         if (!exist) {
-            log.info(("Delete book failed"));
+            log.error(String.format("Delete book %l failed", id));
             throw new IllegalStateException("Book have id " + id + " don't exist");
         }
         System.out.printf("Id: " + id);

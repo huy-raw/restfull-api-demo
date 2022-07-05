@@ -1,13 +1,17 @@
-package com.huyraw.demo.model;
+package com.huyraw.demo.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.huyraw.demo.util.constant.UserRole;
+import com.huyraw.demo.util.constant.UserStatus;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 
+
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.Period;
 import java.util.UUID;
 
 
@@ -17,7 +21,6 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class User {
     @Id
     @GeneratedValue(
@@ -28,42 +31,33 @@ public class User {
             name = "UUID",
             strategy = "org.hibernate.id.UUIDGenerator"
     )
-    @Column(name = "userId", updatable = false, nullable = false )
+    @Column(name = "userId", updatable = false)
+    @Schema(description = "User UUID in  the database")
+    @JsonProperty("id")
     private UUID id;
 
     @Column(nullable = false)
+    @Schema(description = "Full name of user")
     private String fullName;
 
     @Column(nullable = false)
     private String password;
 
+
     @Column(nullable = false, unique = true)
     private String email;
 
+    @Schema(description = "Birthday")
     @Column(nullable = false)
     private LocalDate dob;
 
-    @Column(name = "status", nullable = false)
-    private Status status;
-
-    private Role role;
-
-    @Transient
-    private Integer age;
+    @Column(nullable = false)
+    private UserStatus status;
 
 
-    public int getAge() {
-        return Period.between(this.dob, LocalDate.now()).getYears();
-    }
+    @Column(nullable = false)
+    private UserRole role;
 
 
-    enum Role {
-        USER,
-        ADMIN
-    }
 
-    enum Status {
-        ACTIVE,
-        INACTIVE
-    }
 }

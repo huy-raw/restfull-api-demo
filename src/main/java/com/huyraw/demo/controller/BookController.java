@@ -1,10 +1,9 @@
 package com.huyraw.demo.controller;
 
 
-import com.huyraw.demo.model.Book;
+import com.huyraw.demo.entity.Book;
 import com.huyraw.demo.service.BookService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -41,6 +40,7 @@ public class BookController {
             @ApiResponse(responseCode = "404", description = "Book not found",
                     content = @Content)})
     @GetMapping(value = "/")
+    @ResponseStatus(HttpStatus.CREATED)
     public List<Book> getBooks() {
         return bookService.getAllBooks();
     }
@@ -48,13 +48,14 @@ public class BookController {
 
     @GetMapping(path = "/{id}")
     @Operation(summary = "Get book by Id")
+    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Book> getBookById(@PathVariable("id") Long id) {
         return new ResponseEntity<>(bookService.getBookById(id), HttpStatus.OK);
     }
 
 
     @PostMapping(value = "/")
-    @ResponseStatus()
+    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Book> importNewBook(@RequestBody Book book) {
         Book book_ = bookService.addNewBook(book);
         if (book_ == null) {
@@ -66,7 +67,6 @@ public class BookController {
     @DeleteMapping(path = "/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void deleteBook(@PathVariable("id") Long id) {
-
         bookService.deleteBook(id);
     }
 

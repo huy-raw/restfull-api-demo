@@ -1,9 +1,7 @@
-package com.huyraw.demo.model;
+package com.huyraw.demo.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -43,8 +41,13 @@ public class Book {
     @Column(nullable = false)
     private Integer quantity;
 
+    @Schema(description = "Status of Book")
     @Column(name = "isDelete")
     private Boolean status;
+
+
+//    @Column(name = "image of Book")
+//    private String image;
 
     public LocalDate getImportDate(){
         return LocalDate.now();

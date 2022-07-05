@@ -1,6 +1,6 @@
 package com.huyraw.demo.config;
 
-import com.huyraw.demo.model.Book;
+import com.huyraw.demo.entity.Book;
 import com.huyraw.demo.repository.BookRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;

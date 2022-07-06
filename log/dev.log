@@ -4592,3 +4592,53 @@ java.lang.NullPointerException: Cannot invoke "String.isEmpty()" because the ret
 2022-07-06 20:00:14.936  INFO 19992 --- [SpringApplicationShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
 2022-07-06 20:00:14.961  INFO 19992 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2022-07-06 20:00:14.966  INFO 19992 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-07-06 20:08:46.370  INFO 23532 --- [main] c.h.d.RestfulApiSpringApplicationTests   : Starting RestfulApiSpringApplicationTests using Java 17.0.1 on HuyRaw with PID 23532 (started by Admin in C:\Users\Admin\Desktop\DMCS\Spring\restful-api-demo)
+2022-07-06 20:08:46.372  INFO 23532 --- [main] c.h.d.RestfulApiSpringApplicationTests   : No active profile set, falling back to 1 default profile: "default"
+2022-07-06 20:08:47.340  INFO 23532 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-07-06 20:08:47.426  INFO 23532 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 73 ms. Found 2 JPA repository interfaces.
+2022-07-06 20:08:48.260  INFO 23532 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-07-06 20:08:48.339  INFO 23532 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-07-06 20:08:48.570  INFO 23532 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-07-06 20:08:48.828  INFO 23532 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-07-06 20:08:49.304  INFO 23532 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-07-06 20:08:49.324  INFO 23532 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-07-06 20:08:50.311  INFO 23532 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-07-06 20:08:50.320  INFO 23532 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-07-06 20:08:51.398  WARN 23532 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-07-06 20:08:53.082  INFO 23532 --- [main] c.h.d.RestfulApiSpringApplicationTests   : Started RestfulApiSpringApplicationTests in 7.16 seconds (JVM running for 8.23)
+2022-07-06 20:08:53.546  INFO 23532 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-07-06 20:08:53.547  INFO 23532 --- [SpringApplicationShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2022-07-06 20:08:53.583  INFO 23532 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-07-06 20:08:53.594  INFO 23532 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-07-06 20:09:40.128  INFO 12296 --- [main] c.h.d.RestfulApiSpringApplicationTests   : Starting RestfulApiSpringApplicationTests using Java 17.0.1 on HuyRaw with PID 12296 (started by Admin in C:\Users\Admin\Desktop\DMCS\Spring\restful-api-demo)
+2022-07-06 20:09:40.130  INFO 12296 --- [main] c.h.d.RestfulApiSpringApplicationTests   : No active profile set, falling back to 1 default profile: "default"
+2022-07-06 20:09:41.066  INFO 12296 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-07-06 20:09:41.153  INFO 12296 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 76 ms. Found 2 JPA repository interfaces.
+2022-07-06 20:09:41.946  INFO 12296 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-07-06 20:09:42.013  INFO 12296 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-07-06 20:09:42.199  INFO 12296 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-07-06 20:09:42.401  INFO 12296 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-07-06 20:09:42.861  INFO 12296 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-07-06 20:09:42.886  INFO 12296 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-07-06 20:09:44.343  INFO 12296 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-07-06 20:09:44.357  INFO 12296 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-07-06 20:09:45.624  WARN 12296 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-07-06 20:09:47.487  INFO 12296 --- [main] c.h.d.RestfulApiSpringApplicationTests   : Started RestfulApiSpringApplicationTests in 7.787 seconds (JVM running for 8.815)
+2022-07-06 20:09:59.097  INFO 20540 --- [main] c.h.d.RestfulApiSpringApplicationTests   : Starting RestfulApiSpringApplicationTests using Java 17.0.1 on HuyRaw with PID 20540 (started by Admin in C:\Users\Admin\Desktop\DMCS\Spring\restful-api-demo)
+2022-07-06 20:09:59.099  INFO 20540 --- [main] c.h.d.RestfulApiSpringApplicationTests   : No active profile set, falling back to 1 default profile: "default"
+2022-07-06 20:10:00.044  INFO 20540 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-07-06 20:10:00.171  INFO 20540 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 114 ms. Found 2 JPA repository interfaces.
+2022-07-06 20:10:01.021  INFO 20540 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-07-06 20:10:01.100  INFO 20540 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-07-06 20:10:01.289  INFO 20540 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-07-06 20:10:01.499  INFO 20540 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-07-06 20:10:01.956  INFO 20540 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-07-06 20:10:01.978  INFO 20540 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-07-06 20:10:02.839  INFO 20540 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-07-06 20:10:02.847  INFO 20540 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-07-06 20:10:03.918  WARN 20540 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-07-06 20:10:05.639  INFO 20540 --- [main] c.h.d.RestfulApiSpringApplicationTests   : Started RestfulApiSpringApplicationTests in 6.966 seconds (JVM running for 7.982)
+2022-07-06 20:10:06.100  INFO 20540 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-07-06 20:10:06.101  INFO 20540 --- [SpringApplicationShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2022-07-06 20:10:06.129  INFO 20540 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-07-06 20:10:06.139  INFO 20540 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

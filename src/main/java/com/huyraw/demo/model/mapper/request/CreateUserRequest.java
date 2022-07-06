@@ -51,7 +51,7 @@ public class CreateUserRequest {
     )
     private String password;
 
-    @DateTimeFormat()
+    @DateTimeFormat
     @NotNull
     @Schema(
             example = "2001-09-19",

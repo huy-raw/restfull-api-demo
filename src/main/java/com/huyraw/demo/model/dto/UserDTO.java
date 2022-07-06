@@ -5,6 +5,7 @@ import com.huyraw.demo.util.constant.UserStatus;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 
 @Getter
@@ -14,7 +15,7 @@ import java.time.LocalDate;
 @Data
 @Builder
 public class UserDTO {
-
+    private UUID id;
     private String name;
     private String password;
     private LocalDate dob;

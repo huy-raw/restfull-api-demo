@@ -47,8 +47,9 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
+
     @Schema(description = "Birthday")
-    @Column(nullable = false)
+    @Column(name = "birthday", nullable = false)
     private LocalDate dob;
 
     @Column(nullable = false)

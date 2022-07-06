@@ -7,9 +7,9 @@ import com.huyraw.demo.model.mapper.request.CreateUserRequest;
 import com.huyraw.demo.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
 
-import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,7 +39,7 @@ public class UserService {
         return listUserDTO;
     }
 
-    public void createUser(CreateUserRequest req) {
+    public void createUser(@NotNull CreateUserRequest req) {
         Optional<User> userOptional = userRepository.findUserByEmail(req.getEmail());
 
         try {

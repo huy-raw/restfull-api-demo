@@ -1,12 +1,11 @@
 package com.huyraw.demo.controller;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import com.huyraw.demo.model.dto.UserDTO;
 import com.huyraw.demo.model.mapper.request.CreateUserRequest;
 import com.huyraw.demo.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Tag(name = "user")
@@ -29,7 +29,7 @@ public class UserController {
     @PostMapping(value = "/")
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(summary = "Create new user")
-    public ResponseEntity<UserDTO> createUser(@RequestBody CreateUserRequest req) {
+    public ResponseEntity<UserDTO> createUser(@Valid @RequestBody CreateUserRequest req) {
        userService.createUser(req);
        return ResponseEntity.status(HttpStatus.CREATED).build();
     }

@@ -11,8 +11,9 @@ import org.hibernate.annotations.GenericGenerator;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.Past;
 import java.time.LocalDate;
-import java.util.UUID;
+
 
 
 @Entity
@@ -22,6 +23,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
+
     @Id
     @GeneratedValue(
             strategy = GenerationType.AUTO,
@@ -31,10 +33,10 @@ public class User {
             name = "UUID",
             strategy = "org.hibernate.id.UUIDGenerator"
     )
-    @Column(name = "userId", updatable = false)
-    @Schema(description = "User UUID in  the database")
+    @Column(name = "Id", updatable = false)
+    @Schema(description = "User Id in  the database")
     @JsonProperty("id")
-    private UUID id;
+    private String id;
 
     @Column(nullable = false)
     @Schema(description = "Full name of user")
@@ -49,6 +51,7 @@ public class User {
 
 
     @Schema(description = "Birthday")
+    @Past(message = "birthday must be a date value in the past")
     @Column(name = "birthday", nullable = false)
     private LocalDate dob;
 
@@ -59,6 +62,14 @@ public class User {
     @Column(nullable = false)
     private UserRole role;
 
+    public User(final String fullName, final String password, final String email, final LocalDate dob, final UserStatus status, final UserRole role) {
+        this.fullName = fullName;
+        this.password = password;
+        this.email = email;
+        this.dob = dob;
+        this.status = status;
+        this.role = role;
+    }
 
 
 }

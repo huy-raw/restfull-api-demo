@@ -12,7 +12,7 @@ import java.util.List;
 @Configuration
 public class BookConfig {
 
-    @Bean
+    @Bean(name = "Book")
     CommandLineRunner commandLineRunner (BookRepository repository) {
         return  args -> {
             Book book1 = new

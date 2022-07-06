@@ -10,10 +10,7 @@ import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 
 @AllArgsConstructor
@@ -58,7 +55,9 @@ public class CreateUserRequest {
             required = true,
             description = "YYYY-MM-DD"
     )
+    @Pattern(regexp = "\\d{4}-\\d{2}-\\d{2}")
     @JsonProperty("birthday")
+    @Past(message = "birthday must be a date value in the past")
     private LocalDate dob;
 
 

@@ -47,10 +47,10 @@ public class BookController {
 
 
     @GetMapping(path = "/{id}")
-    @Operation(summary = "Get book by Id")
-    @ResponseStatus(HttpStatus.CREATED)
+    @Operation(description = "Get book by Id")
+    @ResponseStatus(HttpStatus.FOUND)
     public ResponseEntity<Book> getBookById(@PathVariable("id") Long id) {
-        return new ResponseEntity<>(bookService.getBookById(id), HttpStatus.OK);
+        return new ResponseEntity<>(bookService.getBookById(id), HttpStatus.FOUND);
     }
 
 

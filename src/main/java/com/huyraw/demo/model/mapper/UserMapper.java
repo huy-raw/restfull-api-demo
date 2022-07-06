@@ -7,9 +7,7 @@ import com.huyraw.demo.model.mapper.request.CreateUserRequest;
 import com.huyraw.demo.model.mapper.request.UpdateUserRequest;
 import com.huyraw.demo.util.constant.UserRole;
 import com.huyraw.demo.util.constant.UserStatus;
-import org.mapstruct.InheritInverseConfiguration;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
+import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;
 import org.springframework.lang.Nullable;
 
@@ -29,29 +27,11 @@ public interface UserMapper {
     UserDTO toUserDTO(User user);
 
 
-    default User updateUser(@Nullable UpdateUserRequest req, User user) {
+    @InheritConfiguration
+    @Mapping(target = "password", ignore = true)
+    @Mapping(target = "fullName", source = "name")
+    User updateUser(UpdateUserRequest req, @MappingTarget User user);
 
-        if (!req.getName().isEmpty()
-                && !req.getName().equalsIgnoreCase(user.getFullName())
-                && req.getEmail() != null) {
-            user.setFullName(req.getName());
-        }
-
-
-        if (!req.getEmail().isEmpty()
-                && !req.getEmail().equalsIgnoreCase(user.getEmail())
-                && req.getEmail() != null) {
-            user.setEmail(req.getEmail());
-        }
-
-
-        if (!req.getDob().equals(user.getDob())
-                && req.getEmail() != null) {
-            user.setDob(req.getDob());
-        }
-        return user;
-
-    }
 
     default User createUser(CreateUserRequest request) {
         if (request == null) {

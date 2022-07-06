@@ -1,20 +1,17 @@
-package com.huyraw.demo.book;
+package com.huyraw.demo.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.Period;
 
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-@Table
+@Table(name = "book")
 @Entity
 public class Book {
     @Id
@@ -29,23 +26,28 @@ public class Book {
     )
     private Long Id;
 
-    @Column()
+    @Column(nullable = false)
     private String title;
 
-    @Column()
+    @Column(nullable = false)
     private String author;
 
     @Column()
     private LocalDate importDate;
 
-    @Column()
+    @Column(nullable = false)
     private Double price;
 
-    @Column
+    @Column(nullable = false)
     private Integer quantity;
 
+    @Schema(description = "Status of Book")
     @Column(name = "isDelete")
     private Boolean status;
+
+
+//    @Column(name = "image of Book")
+//    private String image;
 
     public LocalDate getImportDate(){
         return LocalDate.now();

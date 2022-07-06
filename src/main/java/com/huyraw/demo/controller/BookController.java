@@ -1,11 +1,14 @@
-package com.huyraw.demo.book;
+package com.huyraw.demo.controller;
 
 
-import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import com.huyraw.demo.entity.Book;
+import com.huyraw.demo.service.BookService;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +20,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "api/book")
+@Tag(name = "book")
 public class BookController {
 
 
@@ -36,20 +40,22 @@ public class BookController {
             @ApiResponse(responseCode = "404", description = "Book not found",
                     content = @Content)})
     @GetMapping(value = "/")
+    @ResponseStatus(HttpStatus.CREATED)
     public List<Book> getBooks() {
         return bookService.getAllBooks();
     }
 
 
     @GetMapping(path = "/{id}")
-
+    @Operation(description = "Get book by Id")
+    @ResponseStatus(HttpStatus.FOUND)
     public ResponseEntity<Book> getBookById(@PathVariable("id") Long id) {
-        return new ResponseEntity<>(bookService.getBookById(id), HttpStatus.OK);
+        return new ResponseEntity<>(bookService.getBookById(id), HttpStatus.FOUND);
     }
 
 
     @PostMapping(value = "/")
-    @ResponseStatus()
+    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Book> importNewBook(@RequestBody Book book) {
         Book book_ = bookService.addNewBook(book);
         if (book_ == null) {
@@ -61,7 +67,6 @@ public class BookController {
     @DeleteMapping(path = "/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void deleteBook(@PathVariable("id") Long id) {
-
         bookService.deleteBook(id);
     }
 

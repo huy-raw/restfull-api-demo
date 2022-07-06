@@ -1,5 +1,7 @@
-package com.huyraw.demo.book;
+package com.huyraw.demo.config;
 
+import com.huyraw.demo.entity.Book;
+import com.huyraw.demo.repository.BookRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,7 +12,7 @@ import java.util.List;
 @Configuration
 public class BookConfig {
 
-    @Bean
+    @Bean(name = "Book")
     CommandLineRunner commandLineRunner (BookRepository repository) {
         return  args -> {
             Book book1 = new

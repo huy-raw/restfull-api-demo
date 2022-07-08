@@ -49,8 +49,18 @@ public class Book {
 //    @Column(name = "image of Book")
 //    private String image;
 
+    public Book(String title, String author, LocalDate importDate, Double price, Integer quantity){
+        this.title = title;
+        this.author = author;
+        this.importDate = importDate;
+        this.price = price;
+        this.quantity = quantity;
+        this.status = true;
+    }
+
     public LocalDate getImportDate(){
         return LocalDate.now();
     }
+
 
 }

@@ -1,18 +1,47 @@
-2022-07-07 17:05:25.143  INFO 17620 --- [main] c.h.d.RestfulApiSpringApplicationTests   : Starting RestfulApiSpringApplicationTests using Java 17.0.1 on HuyRaw with PID 17620 (started by Admin in C:\Users\Admin\Desktop\DMCS\Spring\restful-api-demo)
-2022-07-07 17:05:25.151  INFO 17620 --- [main] c.h.d.RestfulApiSpringApplicationTests   : No active profile set, falling back to 1 default profile: "default"
-2022-07-07 17:05:26.190  INFO 17620 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-07-07 17:05:26.310  INFO 17620 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 101 ms. Found 2 JPA repository interfaces.
-2022-07-07 17:05:27.188  INFO 17620 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-07-07 17:05:27.269  INFO 17620 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
-2022-07-07 17:05:27.498  INFO 17620 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-07-07 17:05:27.719  INFO 17620 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-07-07 17:05:28.202  INFO 17620 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-07-07 17:05:28.224  INFO 17620 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2022-07-07 17:05:29.324  INFO 17620 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-07-07 17:05:29.332  INFO 17620 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-07-07 17:05:30.483  WARN 17620 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-07-07 17:05:32.110  INFO 17620 --- [main] c.h.d.RestfulApiSpringApplicationTests   : Started RestfulApiSpringApplicationTests in 7.397 seconds (JVM running for 8.54)
-2022-07-07 17:05:32.641  INFO 17620 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-07-07 17:05:32.642  INFO 17620 --- [SpringApplicationShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
-2022-07-07 17:05:32.679  INFO 17620 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-07-07 17:05:32.687  INFO 17620 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-07-08 00:51:00.255  INFO 25224 --- [main] c.h.demo.RestfulApiSpringApplication     : Starting RestfulApiSpringApplication using Java 17.0.1 on HuyRaw with PID 25224 (C:\Users\Admin\Desktop\DMCS\Spring\restful-api-demo\target\classes started by Admin in C:\Users\Admin\Desktop\DMCS\Spring\restful-api-demo)
+2022-07-08 00:51:00.262  INFO 25224 --- [main] c.h.demo.RestfulApiSpringApplication     : No active profile set, falling back to 1 default profile: "default"
+2022-07-08 00:51:00.953  INFO 25224 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-07-08 00:51:00.995  INFO 25224 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 34 ms. Found 2 JPA repository interfaces.
+2022-07-08 00:51:01.397  INFO 25224 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9000 (http)
+2022-07-08 00:51:01.405  INFO 25224 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-07-08 00:51:01.405  INFO 25224 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2022-07-08 00:51:01.554  INFO 25224 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-07-08 00:51:01.554  INFO 25224 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1234 ms
+2022-07-08 00:51:01.712  INFO 25224 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-07-08 00:51:01.748  INFO 25224 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-07-08 00:51:01.849  INFO 25224 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-07-08 00:51:01.915  INFO 25224 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-07-08 00:51:02.228  INFO 25224 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-07-08 00:51:02.237  INFO 25224 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-07-08 00:51:02.783  INFO 25224 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-07-08 00:51:02.790  INFO 25224 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-07-08 00:51:03.191  WARN 25224 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-07-08 00:51:03.998  INFO 25224 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9000 (http) with context path ''
+2022-07-08 00:51:04.006  INFO 25224 --- [main] c.h.demo.RestfulApiSpringApplication     : Started RestfulApiSpringApplication in 4.204 seconds (JVM running for 4.935)
+2022-07-08 00:51:07.189  INFO 25224 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-07-08 00:51:07.190  INFO 25224 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-07-08 00:51:07.196  INFO 25224 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-07-08 00:53:49.688  INFO 23344 --- [main] c.h.demo.RestfulApiSpringApplication     : Starting RestfulApiSpringApplication using Java 17.0.1 on HuyRaw with PID 23344 (C:\Users\Admin\Desktop\DMCS\Spring\restful-api-demo\target\classes started by Admin in C:\Users\Admin\Desktop\DMCS\Spring\restful-api-demo)
+2022-07-08 00:53:49.690  INFO 23344 --- [main] c.h.demo.RestfulApiSpringApplication     : No active profile set, falling back to 1 default profile: "default"
+2022-07-08 00:53:50.281  INFO 23344 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-07-08 00:53:50.324  INFO 23344 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 35 ms. Found 2 JPA repository interfaces.
+2022-07-08 00:53:50.695  INFO 23344 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9000 (http)
+2022-07-08 00:53:50.701  INFO 23344 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-07-08 00:53:50.701  INFO 23344 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2022-07-08 00:53:50.832  INFO 23344 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-07-08 00:53:50.833  INFO 23344 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1105 ms
+2022-07-08 00:53:50.946  INFO 23344 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-07-08 00:53:50.975  INFO 23344 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-07-08 00:53:51.061  INFO 23344 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-07-08 00:53:51.120  INFO 23344 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-07-08 00:53:51.351  INFO 23344 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-07-08 00:53:51.360  INFO 23344 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-07-08 00:53:51.863  INFO 23344 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-07-08 00:53:51.870  INFO 23344 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-07-08 00:53:52.268  WARN 23344 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-07-08 00:53:53.076  INFO 23344 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9000 (http) with context path ''
+2022-07-08 00:53:53.084  INFO 23344 --- [main] c.h.demo.RestfulApiSpringApplication     : Started RestfulApiSpringApplication in 3.853 seconds (JVM running for 4.557)
+2022-07-08 00:53:56.291  INFO 23344 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-07-08 00:53:56.291  INFO 23344 --- [SpringApplicationShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2022-07-08 00:53:56.317  INFO 23344 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-07-08 00:53:56.323  INFO 23344 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

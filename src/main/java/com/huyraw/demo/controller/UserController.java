@@ -15,9 +15,11 @@ import lombok.Setter;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.validation.constraints.Email;
 import java.util.List;
 
 
@@ -33,7 +35,7 @@ public class UserController {
     @PostMapping(value = "/")
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(summary = "Create new user")
-    public ResponseEntity<UserDTO> createUser(@Valid @RequestBody CreateUserRequest req) {
+    public ResponseEntity<UserDTO> createUser(@Validated @RequestBody CreateUserRequest req) {
        userService.createUser(req);
        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
@@ -48,29 +50,31 @@ public class UserController {
     @GetMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.FOUND)
     @Operation(description = "Find user by id")
-    public ResponseEntity<UserDTO> findUserById(@PathVariable(value = "id") String id){
+    public ResponseEntity<UserDTO> findUserById(@Validated @PathVariable(value = "id") String id){
         return new ResponseEntity<>(userService.findUserById(id), HttpStatus.FOUND);
     }
 
     @GetMapping(value = "/email")
     @ResponseStatus(HttpStatus.FOUND)
     @Operation(description = "Find user by email")
-    public ResponseEntity<UserDTO> findUserByEmail(@RequestParam(value = "email") String email){
+    public ResponseEntity<UserDTO> findUserByEmail(@Validated @Email @RequestParam(value = "email") String email){
         return new ResponseEntity<>(userService.findUserByEmail(email), HttpStatus.FOUND);
     }
 
 
     @DeleteMapping(path = "/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<UserDTO> deleteUserById(@PathVariable(value = "id") String id ) {
+    @Validated
+    public ResponseEntity<UserDTO> deleteUserById(@Validated @PathVariable(value = "id") String id ) {
         userService.deleteUserById(id);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
     @PatchMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<UserDTO> updateUserById(@PathVariable(value = "id") String id,
-                                                  @RequestBody UpdateUserRequest req) {
+    @Validated
+    public ResponseEntity<UserDTO> updateUserById(@Validated @PathVariable(value = "id") String id,
+                                                  @Validated @RequestBody UpdateUserRequest req) {
         return  new ResponseEntity<>(userService.updateUser(id, req), HttpStatus.OK);
     }
 

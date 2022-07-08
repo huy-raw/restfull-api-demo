@@ -17,12 +17,13 @@ import java.time.LocalDate;
 
 
 @Entity
-@Table(name = "user")
+@Table(name = "\"user\"")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+@Builder
+public class User  {
 
     @Id
     @GeneratedValue(

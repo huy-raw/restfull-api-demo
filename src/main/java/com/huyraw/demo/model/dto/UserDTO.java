@@ -43,4 +43,6 @@ public class UserDTO {
     @NotNull
     private UserStatus status;
 
+
+
 }

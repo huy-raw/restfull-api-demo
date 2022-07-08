@@ -28,6 +28,7 @@ public interface UserMapper {
 
 
     @InheritConfiguration
+    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     @Mapping(target = "password", ignore = true)
     @Mapping(target = "fullName", source = "name")
     User updateUser(UpdateUserRequest req, @MappingTarget User user);

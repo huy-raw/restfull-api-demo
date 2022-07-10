@@ -20,7 +20,7 @@ import java.time.LocalDate;
 @Builder
 public class UserDTO {
 
-    @NotNull
+
     private String id;
 
     @NotNull

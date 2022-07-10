@@ -4,6 +4,7 @@ import com.huyraw.demo.entity.User;
 import com.huyraw.demo.util.constant.UserRole;
 import com.huyraw.demo.util.constant.UserStatus;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -28,7 +29,7 @@ class UserRepositoryTest {
     }
 
     @Test
-    void findUserByEmailTest() {
+    void findUserByEmailTest_giveEmail_whenUserExist() {
         String email = "huyraw@gmail.com";
         //given
         User user = User.builder().
@@ -41,13 +42,14 @@ class UserRepositoryTest {
                 .build();
         underTest.save(user);
         //when
-       User expect = underTest.findUserByEmail(email);
+       User expect = underTest.findUserByEmail(email).get();
         //then
         assertThat(expect).usingRecursiveComparison().isEqualTo(user);
     }
 
+
     @Test
-    void isExistUserByEmailTest() {
+    void isExistUserByEmailTest_giveEmail_whenUserExist() {
         String email = "huyraw@gmail.com";
         //given
         User user = User.builder().

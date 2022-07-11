@@ -4,6 +4,7 @@ import com.huyraw.demo.entity.User;
 import com.huyraw.demo.model.dto.UserDTO;
 import com.huyraw.demo.model.mapper.UserMapper;
 import com.huyraw.demo.model.mapper.request.CreateUserRequest;
+import com.huyraw.demo.model.mapper.request.UpdateUserRequest;
 import com.huyraw.demo.repository.UserRepository;
 import com.huyraw.demo.util.constant.UserRole;
 import com.huyraw.demo.util.constant.UserStatus;
@@ -25,6 +26,7 @@ import java.util.UUID;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
@@ -124,7 +126,7 @@ class UserServiceTest {
     }
 
     @Test
-    void givenEmail_TryDelete_WhenUserExisted(){
+    void givenEmail_TryDelete_WhenUserExisted() {
         String email = "huyraw@gmail.com";
         String id = UUID.randomUUID().toString();
         //given
@@ -149,7 +151,37 @@ class UserServiceTest {
 
     @Test
     @Disabled
-    void updateUser() {
+    void updateUser_giveId_whenUserExist() {
+        String email = "huyraw@gmail.com";
+        String id = UUID.randomUUID().toString();
+        //given
+        User expected = User.builder()
+                .id(id)
+                .fullName("Nguyen Van A")
+                .email(email)
+                .dob(LocalDate.of(2001, 9, 19))
+                .password("12345678")
+                .role(UserRole.USER)
+                .status(UserStatus.ACTIVE)
+                .build();
 
+        UpdateUserRequest request =
+                UpdateUserRequest.builder().
+                        name("Nguyen Van B").
+                        dob(LocalDate.of(2001, 9, 19)).
+                        email(email).build();
+        //when
+        Mockito.when(userRepository.findById(id)).thenReturn(Optional.of(expected));
+//        Mockito.when(userRepository.findUserByEmail(email)).thenReturn(Optional.of(expected));
+
+        //then
+        underTest.updateUser(id, request);
+        Mockito.verify(userRepository).save(any());
+    }
+
+    @Test
+    @Disabled
+    void updateUser_giveId_whenUserNotExist(){
+        String id = UUID.randomUUID().toString();
     }
 }

@@ -150,7 +150,6 @@ class UserServiceTest {
 
 
     @Test
-    @Disabled
     void updateUser_giveId_whenUserExist() {
         String email = "huyraw@gmail.com";
         String id = UUID.randomUUID().toString();
@@ -180,8 +179,17 @@ class UserServiceTest {
     }
 
     @Test
-    @Disabled
-    void updateUser_giveId_whenUserNotExist(){
+    void updateUser_giveId_whenUserNotExist_thenThrowException(){
         String id = UUID.randomUUID().toString();
+        String email = "huyraw@gmail.com";
+        UpdateUserRequest request =
+                UpdateUserRequest.builder().
+                        name("Nguyen Van B").
+                        dob(LocalDate.of(2001, 9, 19)).
+                        email(email).build();
+        //when
+        Mockito.when(userRepository.findById(id)).thenReturn(Optional.empty());
+        assertThatThrownBy(() -> underTest.updateUser(id, request))
+                .hasMessageContaining(String.format("User is have id %s doesn't existed", id));
     }
 }

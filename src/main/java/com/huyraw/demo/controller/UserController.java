@@ -1,8 +1,6 @@
 package com.huyraw.demo.controller;
 
 
-
-
 import com.huyraw.demo.model.dto.UserDTO;
 import com.huyraw.demo.model.mapper.request.CreateUserRequest;
 import com.huyraw.demo.model.mapper.request.UpdateUserRequest;
@@ -48,17 +46,17 @@ public class UserController {
     }
 
     @GetMapping(value = "/{id}")
-    @ResponseStatus(HttpStatus.FOUND)
+    @ResponseStatus(HttpStatus.OK)
     @Operation(description = "Find user by id")
     public ResponseEntity<UserDTO> findUserById(@Validated @PathVariable(value = "id") String id){
-        return new ResponseEntity<>(userService.findUserById(id), HttpStatus.FOUND);
+        return new ResponseEntity<>(userService.findUserById(id), HttpStatus.OK);
     }
 
     @GetMapping(value = "/email")
-    @ResponseStatus(HttpStatus.FOUND)
+    @ResponseStatus(HttpStatus.OK)
     @Operation(description = "Find user by email")
     public ResponseEntity<UserDTO> findUserByEmail(@Validated @Email @RequestParam(value = "email") String email){
-        return new ResponseEntity<>(userService.findUserByEmail(email), HttpStatus.FOUND);
+        return new ResponseEntity<>(userService.findUserByEmail(email), HttpStatus.OK);
     }
 
 

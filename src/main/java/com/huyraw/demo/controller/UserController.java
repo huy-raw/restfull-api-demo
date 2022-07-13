@@ -5,6 +5,7 @@ import com.huyraw.demo.model.dto.UserDTO;
 import com.huyraw.demo.model.mapper.request.CreateUserRequest;
 import com.huyraw.demo.model.mapper.request.UpdateUserRequest;
 import com.huyraw.demo.service.UserService;
+import com.huyraw.demo.util.exception.ApiRequestException;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
@@ -42,7 +43,8 @@ public class UserController {
     @GetMapping(value = "/")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<List<UserDTO>> getAllUser(){
-        return new ResponseEntity<>(userService.getAllUser(), HttpStatus.OK);
+        throw new ApiRequestException("Cannot get all students with custom exception");
+//        return new ResponseEntity<>(userService.getAllUser(), HttpStatus.OK);
     }
 
     @GetMapping(value = "/{id}")
@@ -58,7 +60,6 @@ public class UserController {
     public ResponseEntity<UserDTO> findUserByEmail(@Validated @Email @RequestParam(value = "email") String email){
         return new ResponseEntity<>(userService.findUserByEmail(email), HttpStatus.OK);
     }
-
 
     @DeleteMapping(path = "/{id}")
     @ResponseStatus(HttpStatus.OK)

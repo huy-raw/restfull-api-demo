@@ -11,7 +11,7 @@ import org.springframework.web.context.request.WebRequest;
 public class CustomExceptionHandler {
     @ExceptionHandler(NotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    public ErrorRespone handlerNotFoundException(NotFoundException ex, WebRequest req){
-        return new ErrorRespone(HttpStatus.NOT_FOUND, ex.getMessage());
+    public ErrorResponse handlerNotFoundException(NotFoundException ex, WebRequest req){
+        return new ErrorResponse(HttpStatus.NOT_FOUND, ex.getMessage());
     }
 }

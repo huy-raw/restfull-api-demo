@@ -1,15 +1,15 @@
 package com.huyraw.demo.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.huyraw.demo.util.constant.UserRole;
-import com.huyraw.demo.util.constant.UserStatus;
+import com.huyraw.demo.util.annotations.validator.Password;
+import com.huyraw.demo.util.constants.UserRole;
+import com.huyraw.demo.util.constants.UserStatus;
 import lombok.*;
 import org.jetbrains.annotations.NotNull;
-import org.springframework.format.annotation.DateTimeFormat;
+
 
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Past;
-import java.time.LocalDate;
+
 
 
 @Getter
@@ -28,11 +28,12 @@ public class UserDTO {
 
 
     @JsonIgnore()
+    @Password
     private String password;
 
-    @DateTimeFormat
-    @Past(message = "birthday must be a date value in the past")
-    private LocalDate dob;
+
+    @NotNull
+    private String dob;
 
     @Email()
     private String email;

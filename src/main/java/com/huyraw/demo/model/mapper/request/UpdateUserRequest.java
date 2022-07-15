@@ -1,5 +1,6 @@
 package com.huyraw.demo.model.mapper.request;
 
+import com.huyraw.demo.util.annotations.validator.Birthday;
 import lombok.*;
 import org.springframework.lang.Nullable;
 
@@ -22,6 +23,7 @@ public class UpdateUserRequest {
     @Nullable
     private String email;
 
+    @Birthday
     @Nullable
-    private LocalDate dob;
+    private String dob;
 }

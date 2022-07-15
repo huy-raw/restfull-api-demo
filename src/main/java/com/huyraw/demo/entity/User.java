@@ -2,8 +2,9 @@ package com.huyraw.demo.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.huyraw.demo.util.constant.UserRole;
-import com.huyraw.demo.util.constant.UserStatus;
+import com.huyraw.demo.util.annotations.validator.Birthday;
+import com.huyraw.demo.util.constants.UserRole;
+import com.huyraw.demo.util.constants.UserStatus;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
@@ -11,6 +12,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.Past;
 import java.time.LocalDate;
 
@@ -48,10 +50,12 @@ public class User  {
 
 
     @Column(nullable = false, unique = true)
+    @Email()
     private String email;
 
 
     @Schema(description = "Birthday")
+    @Birthday()
     @Past(message = "birthday must be a date value in the past")
     @Column(name = "birthday", nullable = false)
     private LocalDate dob;

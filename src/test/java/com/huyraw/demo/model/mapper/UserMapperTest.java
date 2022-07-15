@@ -4,16 +4,13 @@ import com.huyraw.demo.entity.User;
 import com.huyraw.demo.model.dto.UserDTO;
 import com.huyraw.demo.model.mapper.request.CreateUserRequest;
 import com.huyraw.demo.model.mapper.request.UpdateUserRequest;
-import com.huyraw.demo.util.constant.UserRole;
-import com.huyraw.demo.util.constant.UserStatus;
-import org.assertj.core.api.AssertionsForClassTypes;
+import com.huyraw.demo.util.constants.UserRole;
+import com.huyraw.demo.util.constants.UserStatus;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class UserMapperTest {
     UserMapper userMapper = UserMapper.INSTANCE;
@@ -33,7 +30,7 @@ class UserMapperTest {
         UserDTO expected = UserDTO.builder()
                 .name("Nguyen Van A")
                 .email("huyraw@mgmail.com")
-                .dob(LocalDate.of(2001,9,19))
+                .dob("19/09/2001")
                 .role(UserRole.USER)
                 .status(UserStatus.ACTIVE).build();
 
@@ -56,7 +53,7 @@ class UserMapperTest {
                 .name("Nguyen Van A")
                 .email("huyraw@mgmail.com")
                 .password("verystrongpassword")
-                .dob(LocalDate.of(2001, 9, 19))
+                .dob("19/09/2001")
                 .role(UserRole.USER)
                 .status(UserStatus.ACTIVE).build();
 
@@ -70,7 +67,7 @@ class UserMapperTest {
                 .name("Nguyen Duc Chung")
                 .email("test@gmail.com")
                 .password("verystrongpassword")
-                .dob(LocalDate.of(2001, 9, 19))
+                .dob("19/09/2001")
                 .build();
 
         User expected = User.builder()
@@ -110,7 +107,7 @@ class UserMapperTest {
 
         UpdateUserRequest data = UpdateUserRequest.builder()
                 .name("Nguyen Duc Chung")
-                .dob(LocalDate.of(2001, 9, 19))
+                .dob("19/09/2001")
                 .email("huyraw@gmail.com")
                 .build();
 

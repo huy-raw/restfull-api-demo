@@ -2,13 +2,14 @@ package com.huyraw.demo.model.mapper.request;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.huyraw.demo.util.annotations.validator.Birthday;
+import com.huyraw.demo.util.annotations.validator.Password;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
-import org.springframework.format.annotation.DateTimeFormat;
 
 
 import javax.validation.constraints.*;
-import java.time.LocalDate;
+
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -38,7 +39,7 @@ public class CreateUserRequest {
 
     @NotNull(message = "Password is required")
     @NotEmpty(message = "Password is required")
-    @Size(min = 8, max = 20, message = "Password must be between 8 and 20 characters")
+    @Password
     @Schema(
             example="verysecretpassword",
             description="Password can't be empty",
@@ -46,17 +47,17 @@ public class CreateUserRequest {
     )
     private String password;
 
-    @DateTimeFormat
+    @Birthday()
     @NotNull
     @Schema(
-            example = "2001-09-19",
+            example = "19/09/2001",
             required = true,
-            description = "YYYY-MM-DD"
+            description = "dd/MM/yyyy"
     )
-    @Pattern(regexp = "\\d{4}-\\d{2}-\\d{2}")
+    @Pattern(regexp = "\\d{2}-\\d{2}-\\d{4}")
     @JsonProperty("birthday")
     @Past(message = "birthday must be a date value in the past")
-    private LocalDate dob;
+    private String dob;
 
 
 }

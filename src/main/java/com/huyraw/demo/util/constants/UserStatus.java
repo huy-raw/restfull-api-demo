@@ -1,4 +1,4 @@
-package com.huyraw.demo.util.constant;
+package com.huyraw.demo.util.constants;
 
 public enum UserStatus {
     ACTIVE,

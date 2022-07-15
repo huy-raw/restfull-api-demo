@@ -1,12 +1,10 @@
 package com.huyraw.demo.controller;
 
-import com.huyraw.demo.entity.User;
 import com.huyraw.demo.model.dto.UserDTO;
 import com.huyraw.demo.model.mapper.UserMapper;
-import com.huyraw.demo.repository.UserRepository;
 import com.huyraw.demo.service.UserService;
-import com.huyraw.demo.util.constant.UserRole;
-import com.huyraw.demo.util.constant.UserStatus;
+import com.huyraw.demo.util.constants.UserRole;
+import com.huyraw.demo.util.constants.UserStatus;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
@@ -15,19 +13,15 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import java.time.LocalDate;
 
 import java.util.UUID;
 
-import static org.hamcrest.Matchers.any;
-import static org.hamcrest.Matchers.hasSize;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(MockitoExtension.class)
@@ -42,7 +36,7 @@ class UserControllerTest {
     private MockMvc mockMvc;
 
     private final String id = UUID.randomUUID().toString();
-    private final LocalDate dob = LocalDate.of(2001,9,19);
+    private final String dob = "19/09/2001";
 
     @BeforeEach
 

@@ -2,8 +2,8 @@ package com.huyraw.demo.config;
 
 import com.huyraw.demo.entity.User;
 import com.huyraw.demo.repository.UserRepository;
-import com.huyraw.demo.util.constant.UserRole;
-import com.huyraw.demo.util.constant.UserStatus;
+import com.huyraw.demo.util.constants.UserRole;
+import com.huyraw.demo.util.constants.UserStatus;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

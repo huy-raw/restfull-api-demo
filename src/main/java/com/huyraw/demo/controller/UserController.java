@@ -5,18 +5,16 @@ import com.huyraw.demo.model.dto.UserDTO;
 import com.huyraw.demo.model.mapper.request.CreateUserRequest;
 import com.huyraw.demo.model.mapper.request.UpdateUserRequest;
 import com.huyraw.demo.service.UserService;
-import com.huyraw.demo.util.exception.ApiRequestException;
+import com.huyraw.demo.util.exceptions.ApiRequestException;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
 
 import javax.validation.constraints.Email;
 import java.util.List;
@@ -33,49 +31,60 @@ public class UserController {
 
     @PostMapping(value = "/")
     @ResponseStatus(HttpStatus.CREATED)
-    @Operation(summary = "Create new user")
+    @Operation(description = "Create new user")
     public ResponseEntity<UserDTO> createUser(@Validated @RequestBody CreateUserRequest req) {
-       userService.createUser(req);
-       return ResponseEntity.status(HttpStatus.CREATED).build();
+        userService.createUser(req);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
 
     @GetMapping(value = "/")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<List<UserDTO>> getAllUser(){
-        throw new ApiRequestException("Cannot get all students with custom exception");
-//        return new ResponseEntity<>(userService.getAllUser(), HttpStatus.OK);
+    public ResponseEntity<List<UserDTO>> getAllUser() {
+        List<UserDTO> listUser = userService.getAllUser();
+        if (listUser.isEmpty()) {
+            throw new ApiRequestException("Cannot get all students");
+        }
+        return new ResponseEntity<>(listUser, HttpStatus.OK);
     }
 
     @GetMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.OK)
     @Operation(description = "Find user by id")
-    public ResponseEntity<UserDTO> findUserById(@Validated @PathVariable(value = "id") String id){
+    public ResponseEntity<UserDTO> findUserById(@Validated @PathVariable(value = "id") String id) {
         return new ResponseEntity<>(userService.findUserById(id), HttpStatus.OK);
     }
 
     @GetMapping(value = "/email")
     @ResponseStatus(HttpStatus.OK)
     @Operation(description = "Find user by email")
-    public ResponseEntity<UserDTO> findUserByEmail(@Validated @Email @RequestParam(value = "email") String email){
+    public ResponseEntity<UserDTO> findUserByEmail(@Validated @Email @RequestParam(value = "email") String email) {
         return new ResponseEntity<>(userService.findUserByEmail(email), HttpStatus.OK);
     }
 
     @DeleteMapping(path = "/{id}")
     @ResponseStatus(HttpStatus.OK)
-    @Validated
-    public ResponseEntity<UserDTO> deleteUserById(@Validated @PathVariable(value = "id") String id ) {
+    public ResponseEntity<UserDTO> deleteUserById(@Validated @PathVariable(value = "id") String id) {
         userService.deleteUserById(id);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
     @PatchMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.OK)
-    @Validated
+    @Operation(description = "update use by patch")
     public ResponseEntity<UserDTO> updateUserById(@Validated @PathVariable(value = "id") String id,
                                                   @Validated @RequestBody UpdateUserRequest req) {
-        return  new ResponseEntity<>(userService.updateUser(id, req), HttpStatus.OK);
+        return new ResponseEntity<>(userService.updateUser(id, req), HttpStatus.OK);
     }
+
+    @PutMapping(value = "/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    @Operation(description = "update use by put")
+    public ResponseEntity<UserDTO> updateUserById2(@Validated @PathVariable(value = "id") String id,
+                                                  @Validated @RequestBody UpdateUserRequest req) {
+        return new ResponseEntity<>(userService.updateUser(id, req), HttpStatus.OK);
+    }
+
 
 
 }

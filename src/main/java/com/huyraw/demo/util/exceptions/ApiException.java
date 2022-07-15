@@ -1,4 +1,4 @@
-package com.huyraw.demo.util.exception;
+package com.huyraw.demo.util.exceptions;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

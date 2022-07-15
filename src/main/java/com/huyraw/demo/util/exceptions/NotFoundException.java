@@ -1,4 +1,4 @@
-package com.huyraw.demo.util.exception;
+package com.huyraw.demo.util.exceptions;
 
 public class NotFoundException extends RuntimeException {
     public NotFoundException(String message) {

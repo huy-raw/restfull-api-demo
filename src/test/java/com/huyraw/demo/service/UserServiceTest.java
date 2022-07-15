@@ -6,8 +6,8 @@ import com.huyraw.demo.model.mapper.UserMapper;
 import com.huyraw.demo.model.mapper.request.CreateUserRequest;
 import com.huyraw.demo.model.mapper.request.UpdateUserRequest;
 import com.huyraw.demo.repository.UserRepository;
-import com.huyraw.demo.util.constant.UserRole;
-import com.huyraw.demo.util.constant.UserStatus;
+import com.huyraw.demo.util.constants.UserRole;
+import com.huyraw.demo.util.constants.UserStatus;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,6 +19,7 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -66,7 +67,7 @@ class UserServiceTest {
         CreateUserRequest request = CreateUserRequest.builder().
                 name("Nguyen Van A")
                 .email(email)
-                .dob(LocalDate.of(2001, 9, 19))
+                .dob("19/09/2001")
                 .password("12345678")
                 .build();
         //when
@@ -166,7 +167,7 @@ class UserServiceTest {
         UpdateUserRequest request =
                 UpdateUserRequest.builder().
                         name("Nguyen Van B").
-                        dob(LocalDate.of(2001, 9, 19)).
+                        dob("19/09/2001").
                         email(email).build();
         //when
         Mockito.when(userRepository.findById(id)).thenReturn(Optional.of(expected));
@@ -184,7 +185,7 @@ class UserServiceTest {
         UpdateUserRequest request =
                 UpdateUserRequest.builder().
                         name("Nguyen Van B").
-                        dob(LocalDate.of(2001, 9, 19)).
+                        dob("19/09/2001").
                         email(email).build();
         //when
         Mockito.when(userRepository.findById(id)).thenReturn(Optional.empty());

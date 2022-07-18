@@ -1,6 +1,7 @@
 package com.huyraw.demo.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.huyraw.demo.util.annotations.validator.Birthday;
 import com.huyraw.demo.util.annotations.validator.Password;
 import com.huyraw.demo.util.constants.UserRole;
 import com.huyraw.demo.util.constants.UserStatus;
@@ -33,6 +34,7 @@ public class UserDTO {
 
 
     @NotNull
+    @Birthday
     private String dob;
 
     @Email()

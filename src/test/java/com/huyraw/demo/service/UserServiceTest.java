@@ -1,5 +1,6 @@
 package com.huyraw.demo.service;
 
+import com.huyraw.demo.config.security.PasswordEncoder;
 import com.huyraw.demo.entity.User;
 import com.huyraw.demo.model.dto.UserDTO;
 import com.huyraw.demo.model.mapper.UserMapper;
@@ -36,6 +37,8 @@ class UserServiceTest {
     private UserRepository userRepository;
     @Mock
     private UserMapper userMapper;
+    @Mock
+    private PasswordEncoder passwordEncoder;
 
     private UserService underTest;
     private AutoCloseable autoCloseable;
@@ -44,7 +47,7 @@ class UserServiceTest {
     @BeforeEach
     void setUp() {
         autoCloseable = MockitoAnnotations.openMocks(this);
-        underTest = new UserService(userRepository, userMapper);
+        underTest = new UserService(userRepository, userMapper, passwordEncoder);
     }
 
     @AfterEach

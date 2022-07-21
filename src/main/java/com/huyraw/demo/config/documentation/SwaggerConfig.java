@@ -1,4 +1,4 @@
-package com.huyraw.demo.config;
+package com.huyraw.demo.config.documentation;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class SwaggerConfig {
-    @Bean
+    @Bean(name = "openApi")
     public OpenAPI  customOpenApi() {
         return new OpenAPI()
                 // Thiết lập các server dùng để test api

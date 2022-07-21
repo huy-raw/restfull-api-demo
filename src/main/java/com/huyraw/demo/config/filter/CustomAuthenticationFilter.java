@@ -5,6 +5,7 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -23,12 +24,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import static com.huyraw.demo.config.filter.SecurityConstant.EXPIRATION_TIME;
 import static com.huyraw.demo.config.filter.SecurityConstant.SECRET;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RequiredArgsConstructor
-public class CustomAuthentication extends UsernamePasswordAuthenticationFilter {
+@Slf4j
+public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     private final AuthenticationManager authenticationManager;
 
     @Override
@@ -37,10 +38,14 @@ public class CustomAuthentication extends UsernamePasswordAuthenticationFilter {
 
         String username = "";
         String password = "";
+
         try {
             HashMap<String, String> body = getBody(request);
             username = body.get("username");
             password = body.get("password");
+            log.info("Username is: {}", username);
+            log.info("Password  is: {}", password);
+
         } catch (IOException ex) {
             return authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(username, password));
@@ -63,7 +68,7 @@ public class CustomAuthentication extends UsernamePasswordAuthenticationFilter {
         String access_token =
                 JWT.create()
                         .withSubject(user.getUsername())
-                        .withExpiresAt(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
+                        .withExpiresAt(new Date(System.currentTimeMillis() + 10*60*1000))
                         .withIssuer(request.getRequestURL().toString())
                         .withClaim(
                                 "roles",
@@ -72,8 +77,15 @@ public class CustomAuthentication extends UsernamePasswordAuthenticationFilter {
                                         .collect(Collectors.toList()))
                         .sign(algorithm);
 
+        String refresh_token = JWT.create()
+                .withSubject(user.getUsername())
+                .withExpiresAt(new Date(System.currentTimeMillis() + 30*60*1000))
+                .withIssuer(request.getRequestURL().toString())
+                .sign(algorithm);
         Map<String, String> token = new HashMap<>();
         token.put("access_token", access_token);
+        response.setHeader("access_token", access_token);
+        response.setHeader("refresh_token", refresh_token);
         response.setContentType(APPLICATION_JSON_VALUE);
         new ObjectMapper().writeValue(response.getOutputStream(), token);
     }

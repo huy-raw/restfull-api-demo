@@ -1,4 +1,4 @@
-package com.huyraw.demo.config;
+package com.huyraw.demo.config.data;
 
 import com.huyraw.demo.entity.Book;
 import com.huyraw.demo.repository.BookRepository;

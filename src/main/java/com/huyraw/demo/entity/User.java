@@ -25,7 +25,6 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Data
 public class User  {
 
     @Id

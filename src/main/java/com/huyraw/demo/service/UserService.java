@@ -126,22 +126,4 @@ public class UserService implements UserDetailsService {
     }
 
 
-    //    public List<UserDTO> getUsersLimit(int limit){
-//        String query = "SELECT s FROM User s ORDER BY s.id";
-//        UserDTO userDTO;
-//
-//        List<User> listUser = userRepository.findAll()
-//        if(!listUser.isEmpty()){
-//           for(User user : listUser){
-//               userDTO = userMapper.INSTANCE.toUserDTO(user);
-//               listUserDTO.add(userDTO);
-//           }
-//            log.info(String.format("Get %d users", (long) listUserDTO.size()));
-//           return listUserDTO;
-//        }
-//        log.error("Not found any users");
-//        return null;
-//    }
-
-
 }

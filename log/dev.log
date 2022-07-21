@@ -315,7 +315,7 @@ org.hibernate.exception.SQLGrammarException: could not extract ResultSet
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.21.jar:5.3.21]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) ~[spring-aop-5.3.21.jar:5.3.21]
 	at jdk.proxy2/jdk.proxy2.$Proxy128.saveAll(Unknown Source) ~[na:na]
-	at com.huyraw.demo.config.BookConfig.lambda$commandLineRunner$0(BookConfig.java:29) ~[classes/:na]
+	at com.huyraw.demo.config.data.BookConfig.lambda$commandLineRunner$0(BookConfig.java:29) ~[classes/:na]
 	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:771) ~[spring-boot-2.7.1.jar:2.7.1]
 	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:755) ~[spring-boot-2.7.1.jar:2.7.1]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) ~[spring-boot-2.7.1.jar:2.7.1]

@@ -9,8 +9,6 @@ import com.huyraw.demo.util.exceptions.ApiRequestException;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -22,8 +20,6 @@ import java.util.List;
 
 @Tag(name = "user")
 @RestController
-@Getter
-@Setter
 @AllArgsConstructor
 @RequestMapping(path = "api/user")
 public class UserController {

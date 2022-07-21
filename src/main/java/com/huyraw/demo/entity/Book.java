@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @Setter
 @Table(name = "book")
 @Entity
-public class Book {
+public class    Book {
     @Id
     @SequenceGenerator(
             name= "book_sequence",

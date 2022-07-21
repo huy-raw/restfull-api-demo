@@ -2,10 +2,9 @@ package com.huyraw.demo.config.security;
 
 
 
-import com.huyraw.demo.config.filter.CustomAuthentication;
-import com.huyraw.demo.config.filter.CustomAuthorization;
+import com.huyraw.demo.config.filter.CustomAuthenticationFilter;
+import com.huyraw.demo.config.filter.CustomAuthorizationFilter;
 import com.huyraw.demo.util.constants.UserRole;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.context.annotation.Bean;
@@ -45,9 +44,9 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    protected void configure(@NotNull HttpSecurity http) throws Exception {
-        CustomAuthentication customAuthenticationFilter =
-                new CustomAuthentication(authenticationManagerBean());
+    protected void configure(HttpSecurity http) throws Exception {
+        CustomAuthenticationFilter customAuthenticationFilter =
+                new CustomAuthenticationFilter(authenticationManagerBean());
         customAuthenticationFilter.setFilterProcessesUrl(LOGIN_URL);
         http.csrf().disable();
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
@@ -65,10 +64,10 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.addFilter(customAuthenticationFilter);
         http.addFilterBefore(
-                new CustomAuthorization(), UsernamePasswordAuthenticationFilter.class);
+                new CustomAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
     }
 
-    @Bean
+    @Bean(name = "corsConfigurationSrc")
     public CorsConfigurationSource corsConfigurationSource() {
         final CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOriginPatterns(List.of("*"));
@@ -86,7 +85,7 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
         return source;
     }
 
-    @Bean
+    @Bean(name = "authenticationManager")
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
